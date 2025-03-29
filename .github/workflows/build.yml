@@ -18,7 +18,7 @@ jobs:
       - name: Run LineageOS MicroG Docker Build
         run: |
           docker run \
-            -e "BRANCH_NAME=lineage-21.0" \
+            -e "BRANCH_NAME=lineage-20.0" \
             -e "DEVICE_LIST=dizi" \
             -e "INCLUDE_PROPRIETARY=true" \
             -e "SIGN_BUILDS=true" \
