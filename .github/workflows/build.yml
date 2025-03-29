@@ -33,7 +33,7 @@ jobs:
             lineageos4microg/docker-lineage-cicd
 
       - name: Upload ROM
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: lineageos-dizi
-          path: zips/*
+          path: zips/
