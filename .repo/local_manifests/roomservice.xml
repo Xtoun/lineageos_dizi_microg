@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <project name="Al1n3r/android_device_xiaomi_dizi" path="device/xiaomi/dizi" remote="github" revision="lineage-21" />
-  <project name="Al1n3r/android_vendor_xiaomi_dizi" path="vendor/xiaomi/dizi" remote="github" revision="lineage-21" />
-  <project name="Al1n3r/android_kernel_xiaomi_dizi" path="kernel/xiaomi/dizi" remote="github" revision="lineage-21" />
+  <remote name="github" fetch="https://github.com" />
+
+  <project name="Al1n3r/android_device_xiaomi_dizi" path="device/xiaomi/dizi" remote="github" revision="lineage-20" />
+  <project name="Al1n3r/android_vendor_xiaomi_dizi" path="vendor/xiaomi/dizi" remote="github" revision="lineage-20" />
+  <project name="Al1n3r/android_kernel_xiaomi_dizi" path="kernel/xiaomi/dizi" remote="github" revision="lineage-20" />
 </manifest>
