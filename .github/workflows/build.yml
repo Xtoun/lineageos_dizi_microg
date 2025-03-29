@@ -1,0 +1,39 @@
+name: Build LineageOS for dizi
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: lineageos4microg/docker-lineage-cicd:latest
+    steps:
+      - name: Checkout empty repo
+        uses: actions/checkout@v3
+
+      - name: Build ROM
+        run: |
+          mkdir -p /srv/src
+          mkdir -p /srv/zips
+          mkdir -p /srv/logs
+          mkdir -p /srv/ccache
+          docker run \
+            -e "BRANCH_NAME=lineage-21.0" \
+            -e "DEVICE_LIST=dizi" \
+            -e "INCLUDE_PROPRIETARY=true" \
+            -e "SIGN_BUILDS=true" \
+            -e "WITH_GAPPS=false" \
+            -e "WITH_MICROG=true" \
+            -e "DEBUG=true" \
+            -v "$GITHUB_WORKSPACE:/srv/src" \
+            -v "$GITHUB_WORKSPACE/zips:/srv/zips" \
+            -v "$GITHUB_WORKSPACE/logs:/srv/logs" \
+            -v "$GITHUB_WORKSPACE/ccache:/srv/ccache" \
+            lineageos4microg/docker-lineage-cicd
+
+      - name: Upload ROM
+        uses: actions/upload-artifact@v3
+        with:
+          name: lineageos-dizi
+          path: zips/*
